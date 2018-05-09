@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.yusys.yusp.example.common.repository.mapper.ExcelDemoMapper">
+  <resultMap id="BaseResultMap" type="cn.com.yusys.yusp.example.common.domain.ExcelDemo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="BOOK_ID" jdbcType="VARCHAR" property="bookId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="AUTHOR" jdbcType="VARCHAR" property="author" />
+    <result column="PUBLISH_TIME" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    BOOK_ID, TITLE, AUTHOR, PUBLISH_TIME, PRICE
+  </sql>
+    
+    <select id="selectExcelDemo" parameterType="cn.com.yusys.yusp.commons.mapper.QueryModel" resultMap="BaseResultMap">
+        select book_id, title, author, publish_time, price
+        from excel_demo
+        <where>
+            <if test="condition.author != null">
+                and author = #{condition.author}
+            </if>
+        </where>
+        <if test="sort != null">
+            order by ${sort}
+        </if>
+        <if test="sort == null">
+            order by book_id
+        </if>
+    </select>
+    
+    <insert id="insertExcelDemo" parameterType="cn.com.yusys.yusp.example.common.domain.ExcelDemo">
+        insert into excel_demo( book_id, title, author, publish_time, price)
+            values(
+                #{bookId},
+                #{title},
+                #{author},
+                #{publishTime},
+                #{price}
+            )
+    </insert>
+</mapper>

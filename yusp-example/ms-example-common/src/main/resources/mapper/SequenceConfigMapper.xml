@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.yusys.yusp.example.common.repository.mapper.SequenceConfigMapper">
+  <resultMap id="BaseResultMap" type="cn.com.yusys.yusp.example.common.domain.SequenceConfig">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="SEQ_NAME" jdbcType="VARCHAR" property="seqName" />
+    <result column="SEQ_ID" jdbcType="VARCHAR" property="seqId" />
+    <result column="STARTVALUE" jdbcType="NUMERIC" property="startvalue" />
+    <result column="MAXIMUMVALUE" jdbcType="NUMERIC" property="maximumvalue" />
+    <result column="INCREMENTVALUE" jdbcType="NUMERIC" property="incrementvalue" />
+    <result column="IS_CYCLE" jdbcType="VARCHAR" property="isCycle" />
+    <result column="CACHEVALUE" jdbcType="NUMERIC" property="cachevalue" />
+    <result column="SEQ_TEMPLET" jdbcType="VARCHAR" property="seqTemplet" />
+    <result column="SEQ_PLACE" jdbcType="NUMERIC" property="seqPlace" />
+    <result column="ZERO_FILL" jdbcType="VARCHAR" property="zeroFill" />
+    <result column="SEQ_CREATE" jdbcType="VARCHAR" property="seqCreate" />
+    <result column="CURRENT_VALUE" jdbcType="VARCHAR" property="currentValue" />
+    <result column="LAST_CHG_DT" jdbcType="VARCHAR" property="lastChgDt" />
+    <result column="LAST_CHG_USR" jdbcType="VARCHAR" property="lastChgUsr" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    ID, SEQ_NAME, SEQ_ID, STARTVALUE, MAXIMUMVALUE, INCREMENTVALUE, IS_CYCLE, CACHEVALUE, 
+    SEQ_TEMPLET, SEQ_PLACE, ZERO_FILL, SEQ_CREATE, CURRENT_VALUE, LAST_CHG_DT, LAST_CHG_USR
+  </sql>
+</mapper>

@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang="zh-CN">
+<head class="v_scrollbar">
+<meta charset="UTF-8" />
+<title>PdfViewDemo</title>
+<style type="text/css">
+
+</style>
+</head>
+<body>
+    <p style="text-align: center;">
+    <strong>调查报告</strong>
+</p>
+<p style="text-align: center;">
+    <strong>调查人员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="Apple-tab-span" style="white-space: pre;"></span>A角:<span th:text="${A}"/>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;联系电话:<span th:text="${Amobile}"/> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;B角:<span th:text="${B}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;联系电话:<span th:text="${Bmobile}"/></strong>
+</p>
+<p>
+    <br/>
+</p>
+<table width="100%" border="1">
+    <tbody>
+        <tr class="firstRow">
+            <td valign="top" rowspan="1" colspan="7" >
+                合作历史：
+            </td>
+        </tr>
+        <tr>
+            <td width="99" valign="top" >
+                放款日期
+            </td>
+            <td width="99" valign="top" >
+                到期日期
+            </td>
+            <td width="99" valign="top" >
+                授信金额（万元）
+            </td>
+            <td width="99" valign="top" >
+                余额（万元）
+            </td>
+            <td width="99" valign="top" >
+                业务品种
+            </td>
+            <td width="99" valign="top" >
+                反担保措施
+            </td>
+            <td width="99" valign="top" >
+                履约评价
+            </td>
+        </tr>
+        <tr th:each="a : ${AList}">
+            <td width="99" valign="top" th:text="${a.a}"></td>
+            <td width="99" valign="top" th:text="${a.b}"></td>
+            <td width="99" valign="top" th:text="${a.c}"></td>
+            <td width="99" valign="top" th:text="${a.d}"></td>
+            <td width="99" valign="top" th:text="${a.e}"></td>
+            <td width="99" valign="top" th:text="${a.f}"></td>
+            <td width="99" valign="top" th:text="${a.g}"></td>
+        </tr>
+        <tr>
+            <td valign="middle" rowspan="1" colspan="2"  align="center">
+                合计：
+            </td>
+            <td width="99" valign="top"><span th:text="${AS1}"/></td>
+            <td width="99" valign="top"><span th:text="${AS2}"/></td>
+            <td width="99" valign="top" >
+                ————
+            </td>
+            <td width="99" valign="top" >
+                ————
+            </td>
+            <td width="99" valign="top" >
+                ————
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <br/>
+</p>
+<p>
+    <br/>
+</p>
+<p style="text-align: center;">
+    <strong>第一部分 经营者及企业基本信息</strong>
+</p>
+<p>
+    <strong><br/></strong>
+</p>
+<p>
+    <strong>1、业务简介和委托人基本信息</strong>
+</p>
+<table  width="100%" border="1">
+    <tbody>
+        <tr class="firstRow">
+            <td width="89" valign="top" >
+                委托人全称:
+            </td>
+            <td valign="top" rowspan="1" colspan="3"  align="center" width="100">
+               <span th:text="${A1}"/>
+            </td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                业务来源:
+            </td>
+            <td width="320" valign="top" >
+            	<span th:hidden="${A2 eq '1' }">■</span>
+            	<span>主动营销</span>
+            	<!-- <span th:hidden="${A2 ne '1' }">□</span>
+				<span>主动营销</span>
+				<span th:hidden="${A2 eq '2' }">■</span>
+            	<span th:hidden="${A2 ne '2' }">□</span>
+				<span>合作机构</span>
+				<span th:hidden="${A2 eq '3' }">■</span>
+            	<span th:hidden="${A2 ne '3' }">□</span>
+				<span>其它</span> -->
+            </td>
+            <td width="132" valign="top" >
+                推荐人及联系方式：
+            </td>
+            <td width="241" valign="top"><span th:text="${A3}"/></td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                申请额度(万):
+            </td>
+            <td width="290" valign="top" ><span th:text="${A4}"/></td>
+            <td width="132" valign="top" >
+                期限(年)：
+            </td>
+            <td width="241" valign="top"><span th:text="${A5}"/></td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                业务品种：
+            </td>
+            <td valign="top" rowspan="1" colspan="3" >
+            银融担保
+				<!-- <input type="checkbox" th:checked="${A6 eq '1' }">银融担保</input>
+				<input type="checkbox" th:checked="${A6 eq '2' }">资金业务</input>
+				<input type="checkbox" th:checked="${A6 eq '3' }">保理</input>
+				<input type="checkbox" th:checked="${A6 eq '4' }">融资租赁</input>
+				<input type="checkbox" th:checked="${A6 eq '5' }">票据业务</input>
+				<input type="checkbox" th:checked="${A6 eq '6' }">其它</input> -->
+            </td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                主营业务：
+            </td>
+            <td valign="top" rowspan="1" colspan="3"><span th:text="${A7}"/></td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                成立时间：
+            </td>
+            <td width="290" valign="top"><span th:text="${A8}"/></td>
+            <td width="132" valign="top" >
+                注册资本：
+            </td>
+            <td width="241" valign="top"><span th:text="${A9}"/></td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                经营面积：
+            </td>
+            <td width="290" valign="top">2000平方</td>
+            <td width="132" valign="top" >
+                权属：
+            </td>
+            <td width="241" valign="top" >
+            自有
+				<!-- <input type="checkbox" checked="true">自有</input>
+				<input type="checkbox" >租赁</input>
+				<input type="checkbox" >租赁自建</input>
+				<input type="checkbox" >其他</input> -->
+            </td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                经营地址:
+            </td>
+            <td valign="top" rowspan="1" colspan="3"><span th:text="${A10}"/></td>
+        </tr>
+        <tr>
+            <td width="89" valign="top" >
+                文字描述:
+            </td>
+            <td valign="top" rowspan="1" colspan="3"><span th:text="${A11}"/></td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <strong>2、核心团队成员信息</strong>
+</p>
+<table width="100%" border="1">
+    <tbody th:each="a : ${a12}">
+        <tr>
+            <td width="119" valign="top">
+                职务:
+            </td>
+            <td width="119" valign="top" th:text="${a.a}"></td>
+            <td width="119" valign="top" >
+                司龄:
+            </td>
+            <td width="119" valign="top" th:text="${a.b}"></td>
+            <td width="119" valign="top" >
+                是否担保：
+            </td>
+            <td width="119" valign="top" >
+            是
+				<!-- <input type="checkbox" th:checked="${a.c eq '1' }">是</input>
+				<input type="checkbox" th:checked="${a.c eq '2' }">否</input> -->
+            </td>
+        </tr>
+        <tr>
+            <td width="119" valign="top" >
+                姓名:<br/>
+            </td>
+            <td width="119" valign="top" th:text="${a.d}"></td>
+            <td width="119" valign="top" >
+                年龄:
+            </td>
+            <td width="119" valign="top" th:text="${a.e}"></td>
+            <td width="119" valign="top" >
+                性别：
+            </td>
+            <td width="119" valign="top" >
+            男
+              <!--  <input type="checkbox" th:checked="${a.f eq '1' }">男</input>
+			   <input type="checkbox" th:checked="${a.f eq '2' }">女</input> -->
+            </td>
+        </tr>
+        <tr>
+            <td width="119" valign="top" >
+                身份证号:<br/>
+            </td>
+            <td valign="top" rowspan="1" colspan="2" th:text="${a.g}"></td>
+            <td width="119" valign="top" >
+                联系电话:
+            </td>
+            <td valign="top" rowspan="1" colspan="2" th:text="${a.h}"></td>
+        </tr>
+        <tr>
+            <td width="119" valign="top" >
+                工作简历：
+            </td>
+            <td valign="top" rowspan="1" colspan="5" th:text="${a.i}"></td>
+        </tr>
+    </tbody>
+</table>
+<p style="text-align: center;">
+    <br/>
+</p>
+<p style="text-align: center;">
+    <strong>第二部分 &nbsp;经营情况</strong>
+</p>
+<p>
+    <strong>1、经营业绩</strong>
+</p>
+<p></p>
+<table  width="100%" border="1">
+    <tbody>
+        <tr class="firstRow">
+            <td width="147" valign="top" >
+                截止日期：
+            </td>
+            <td width="147" valign="top" >
+                2011年
+            </td>
+            <td width="147" valign="top" >
+                2012年
+            </td>
+            <td width="147" valign="top" >
+                2013年
+            </td>
+            <td width="147" valign="top" >
+                核实备注
+            </td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                核实收入：<br/>
+            </td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1000</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                报表收入：
+            </td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">2000</td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1000</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                纳税收入：
+            </td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1000</td>
+            <td width="147" valign="top">1400</td>
+            <td width="147" valign="top">1000</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                流转税纳税额：
+            </td>
+            <td width="147" valign="top">100</td>
+            <td width="147" valign="top">82</td>
+            <td width="147" valign="top">44</td>
+            <td width="147" valign="top">78</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                所得税纳税额：
+            </td>
+            <td width="147" valign="top">13</td>
+            <td width="147" valign="top">56</td>
+            <td width="147" valign="top">75</td>
+            <td width="147" valign="top">82</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                行业平均毛利率：
+            </td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">23%</td>
+            <td width="147" valign="top">29%</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                认可毛利率：
+            </td>
+            <td width="147" valign="top">30%</td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">43%</td>
+            <td width="147" valign="top">29%</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                报表净利润：
+            </td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">23%</td>
+            <td width="147" valign="top">29%</td>
+        </tr>
+        <tr>
+            <td width="147" valign="top" >
+                认可净利润：
+            </td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">20%</td>
+            <td width="147" valign="top">23%</td>
+            <td width="147" valign="top">29%</td>
+        </tr>
+        <tr>
+            <td valign="top" colspan="1" rowspan="1" >
+                核实情况说明：
+            </td>
+            <td valign="top" colspan="1" rowspan="1">属实</td>
+            <td valign="top" colspan="1" rowspan="1">属实</td>
+            <td valign="top" colspan="1" rowspan="1">属实</td>
+            <td valign="top" colspan="1" rowspan="1">属实</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <strong>2、员工及工资</strong>
+</p>
+<p></p>
+<table  width="100%" border="1">
+    <tbody>
+        <tr class="firstRow">
+            <td valign="top"  rowspan="1" colspan="2">
+                人数：去年/目前
+            </td>
+            <td valign="top"  rowspan="1" colspan="2">
+                100人
+            </td>
+            <td valign="top"  rowspan="1" colspan="2">
+                工资水平:<br/>
+            </td>
+            <td valign="top"  rowspan="1" colspan="2">
+            高
+                <!-- <input type="checkbox" checked="true">高</input>
+				<input type="checkbox" >中</input>
+				<input type="checkbox" >低</input><br/> -->
+            </td>
+            <td valign="top"  rowspan="1" colspan="2">
+                社保福利:
+            </td>
+            <td valign="top" colspan="3" rowspan="1" >
+            完善
+				<!-- <input type="checkbox" checked="true" >完善</input>
+				<input type="checkbox" >合格</input>
+				<input type="checkbox" >差</input><br/> -->
+            </td>
+        </tr>
+        <tr>
+            <td valign="top"  width="81">
+                月份
+            </td>
+            <td width="31" valign="top" >
+                1月
+            </td>
+            <td width="36" valign="top" >
+                2月
+            </td>
+            <td width="40" valign="top" >
+                3月
+            </td>
+            <td width="37" valign="top" >
+                4月
+            </td>
+            <td width="41" valign="top" >
+                5月
+            </td>
+            <td width="44" valign="top" >
+                6月
+            </td>
+            <td width="32" valign="top" >
+                7月
+            </td>
+            <td width="42" valign="top" >
+                8月
+            </td>
+            <td width="42" valign="top" >
+                9月
+            </td>
+            <td valign="top" colspan="1" rowspan="1" width="42" >
+                10月
+            </td>
+            <td valign="top" colspan="1" rowspan="1" width="42" >
+                11月
+            </td>
+            <td valign="top" colspan="1" rowspan="1" width="42" >
+                12月
+            </td>
+        </tr>
+        <tr>
+            <td valign="top"  width="81">
+                金额（万）
+            </td>
+            <td width="31" valign="top">100</td>
+            <td width="36" valign="top">100</td>
+            <td width="40" valign="top">100</td>
+            <td width="37" valign="top">100</td>
+            <td width="41" valign="top">100</td>
+            <td width="44" valign="top">200</td>
+            <td width="32" valign="top">100</td>
+            <td width="42" valign="top">200</td>
+            <td width="42" valign="top">300</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">100</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">200</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">100</td>
+        </tr>
+        <tr>
+            <td valign="top"  width="81">
+                发放日期:
+            </td>
+            <td width="31" valign="top">2011-01</td>
+            <td width="36" valign="top">2011-02</td>
+            <td width="40" valign="top">2011-03</td>
+            <td width="37" valign="top">2011-04</td>
+            <td width="41" valign="top">2011-05</td>
+            <td width="44" valign="top">2011-06</td>
+            <td width="32" valign="top">2011-07</td>
+            <td width="42" valign="top">2011-08</td>
+            <td width="42" valign="top">2011-09</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">2011-10</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">2011-11</td>
+            <td valign="top" colspan="1" rowspan="1" width="42">2011-12</td>
+        </tr>
+        <tr>
+            <td valign="top"  width="81">
+                补充说明:
+            </td>
+            <td valign="top" rowspan="1" colspan="12" >
+                核实依据: 原件
+			  <!--  <input type="checkbox" >原件</input>
+			   <input type="checkbox" >复印件</input>
+			   <input type="checkbox"  checked="true" >未核实</input> -->
+			 ；核实方式: 流水
+			   <!-- <input type="checkbox" >流水</input>
+			   <input type="checkbox" >凭证及单据</input>
+			   <input type="checkbox" >工资表</input>
+			   <input type="checkbox"  checked="true" >其他</input> -->
+			 ；&nbsp;
+                <p>
+                    前年工资合计 &nbsp; &nbsp;1000万元；去年工资合计 &nbsp; &nbsp;1500万元；今年截至目前合计 &nbsp; &nbsp;2500万元；
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p style="text-align: center;">
+    <strong><br/></strong>
+</p>
+<p style="text-align: center;">
+    <strong>第三部分 资金需求和还款来源</strong>
+</p>
+<p>
+    <strong><br/></strong>
+</p>
+<p></p>
+<table  width="100%" border="1">
+    <tbody>
+        <tr class="firstRow">
+            <td width="246" valign="top" >
+                资金需求（限定100字以内）：
+            </td>
+            <td width="555" valign="top">1000万</td>
+        </tr>
+        <tr>
+            <td width="246" valign="top" >
+                还款来源及计划（限定200字内）
+            </td>
+            <td width="555" valign="top" >企业正常经营收入</td>
+        </tr>
+        <tr>
+            <td width="246" valign="top" >
+                第一还款来源：
+            </td>
+            <td width="555" valign="top">企业产品出售</td>
+        </tr>
+        <tr>
+            <td width="246" valign="top" >
+                第二还款来源：
+            </td>
+            <td width="555" valign="top">企业专利授权</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <br/>
+</p>
+<p style="text-align: center;">
+    <strong>第四部分 综合性结论</strong>
+</p>
+<p>
+    <strong><br/></strong>
+</p>
+<p></p>
+<table  width="100%">
+    <tbody>
+        <tr class="firstRow">
+            <td width="190" valign="top" >
+                阐述叙做理由:
+            </td>
+            <td valign="top" rowspan="1" colspan="3"></td>
+        </tr>
+        <tr>
+            <td valign="top" rowspan="1" colspan="4"></td>
+        </tr>
+        <tr>
+            <td valign="top" rowspan="1" colspan="4" >
+                本人承诺对以上所陈述的真实性负责，并与委托人无任何血缘及利益关系！
+            </td>
+        </tr>
+        <tr>
+            <td width="190" valign="top"></td>
+            <td width="190" valign="top"></td>
+            <td width="190" valign="top" >
+                签字：A角：王亚飞
+            </td>
+            <td width="190" valign="top" >
+                2011年 &nbsp; &nbsp;11月 &nbsp; &nbsp;22日
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" rowspan="1" colspan="4" >
+                本人承诺对以上所陈述的真实性负责，并与委托人无任何血缘及利益关系！
+            </td>
+        </tr>
+        <tr>
+            <td width="190" valign="top"></td>
+            <td width="190" valign="top"></td>
+            <td width="190" valign="top" >
+                签字：B角：小红
+            </td>
+            <td width="190" valign="top" >
+               2011 年 &nbsp; &nbsp;11月 &nbsp; &nbsp;23日
+            </td>
+        </tr>
+        <tr>
+            <td width="190" valign="top" >
+                部门负责人意见：
+            </td>
+            <td valign="top" rowspan="1" colspan="3"></td>
+        </tr>
+        <tr>
+            <td valign="top" rowspan="1" colspan="4">同意</td>
+        </tr>
+        <tr>
+            <td valign="top" rowspan="1" colspan="2"></td>
+            <td width="190" valign="top" >
+                签字：小明
+            </td>
+            <td width="190" valign="top" >
+               2011 年 &nbsp; &nbsp;12月 &nbsp; &nbsp;23日
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    <br/>
+</p>
+</body>
+</html>

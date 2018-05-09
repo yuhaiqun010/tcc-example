@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.yusys.yusp.example.repository.mapper.DemoTccAccountMapper">
+    <resultMap id="BaseResultMap" type="cn.com.yusys.yusp.example.domain.DemoTccAccount">
+		<id column="ACCT_ID" jdbcType="VARCHAR" property="acctId" />
+		<result column="AMOUNT" jdbcType="NUMERIC" property="amount" />
+		<result column="FROZEN" jdbcType="NUMERIC" property="frozen" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        ACCT_ID,AMOUNT,FROZEN
+    </sql>
+
+    <!-- 根据主键查询 -->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from DEMO_TCC_ACCOUNT
+        where ACCT_ID = #{acctId,jdbcType=VARCHAR}
+    </select>
+
+    <!-- 根据主键更新-只更新非空字段 -->
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.yusys.yusp.example.domain.DemoTccAccount">
+        update DEMO_TCC_ACCOUNT
+        <set>
+            <if test="acctId != null">
+                ACCT_ID = #{acctId,jdbcType=VARCHAR},
+            </if>        
+            <if test="amount != null">
+                AMOUNT = #{amount,jdbcType=NUMERIC},
+            </if>        
+            <if test="frozen != null">
+                FROZEN = #{frozen,jdbcType=NUMERIC}
+            </if>        
+        </set>
+        where ACCT_ID = #{acctId,jdbcType=VARCHAR}
+    </update>
+
+</mapper>

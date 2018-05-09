@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<fileTypeMeta>
+    <fileType>
+        <suffix>.xlsx</suffix>
+        <mimeType>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</mimeType>
+    </fileType>
+    <fileType>
+        <suffix>.xls</suffix>
+        <mimeType>application/vnd.ms-excel</mimeType>
+    </fileType>
+    <fileType>
+        <suffix>.jpg</suffix>
+        <mimeType>image/jpeg</mimeType>
+    </fileType>
+    <fileType>
+        <suffix>.txt</suffix>
+        <mimeType>text/plain</mimeType>
+    </fileType>
+</fileTypeMeta>
